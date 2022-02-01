@@ -17,7 +17,7 @@ get_token <- function(key = "WOS") {
 }
 
 
-get_records <- function(query = "TS=((salmo AND salar) AND conservation)", database = "WOK") {
+get_records <- function(query, database = "WOK") {
   
   ## URL encoding ----
   
@@ -29,8 +29,8 @@ get_records <- function(query = "TS=((salmo AND salar) AND conservation)", datab
   request <- paste0(api_url(), 
                     "?databaseId=", database, 
                     "&usrQuery=", query,
-                    "&count=", 1,
-                    "&firstRecord=", 1)
+                    "&count=", 100,
+                    "&firstRecord=", 301)
   
   response <- httr::GET(url    = request, 
                         config = httr::add_headers(

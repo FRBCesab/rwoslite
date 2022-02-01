@@ -27,3 +27,9 @@ devtools::load_all(here::here())
 ## Create 'outputs' folder ----
 
 dir.create(here::here("outputs"), showWarnings = FALSE)
+
+
+## ----
+
+n_records <- get_records(query = "TS=((salmo AND salar) AND conservation)", 
+                         database = "WOK")
