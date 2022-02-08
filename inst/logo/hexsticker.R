@@ -9,7 +9,7 @@ hexSticker::sticker(
   filename = here::here("man", "figures", "hexsticker.png"),
   dpi      = 1200,
   
-  p_size   = 72.0,        # Title
+  p_size   = 76.0,        # Title
   u_size   = 12.0,        # URL
   p_family = "Aller_Rg",
   
@@ -28,7 +28,7 @@ hexSticker::sticker(
   
   spotlight = TRUE,
   
-  l_alpha   = 0.20,
+  l_alpha   = 0.10,
   l_width   = 3,
   l_height  = 3,
   
