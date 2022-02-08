@@ -1,6 +1,6 @@
 api_url <- function() "https://wos-api.clarivate.com/api/woslite/"
 
-get_token <- function(key = "WOS") {
+get_token <- function(key = "WOS_KEY") {
   
   wos_token <- Sys.getenv(key)
   
@@ -10,7 +10,7 @@ get_token <- function(key = "WOS") {
          " 1. have obtained you own token, and\n",
          " 2. have stored the token in the `~/.Renviron` file ",
          "using the function `usethis::edit_r_environ()`.\n",
-         "    Add this line: WOS='XXX' and restart R.")
+         "    Add this line: WOS_KEY='XXX' and restart R.")
   }
   
   wos_token
