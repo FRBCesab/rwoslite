@@ -23,4 +23,5 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 Imports: 
     httr,
-    jsonlite
+    jsonlite,
+    utils

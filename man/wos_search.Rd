@@ -17,9 +17,9 @@ The total number of publications (integer of length 1) matching the
 query.
 }
 \description{
-Retrieve total number of publications from a request
+https://developer.clarivate.com/apis/woslite
 }
 \examples{
 query <- "TS=((salmo AND salar) AND conservation)"
-wos_search(query, database = "WOK")
+wos_search(query)
 }

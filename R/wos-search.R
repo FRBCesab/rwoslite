@@ -1,4 +1,6 @@
 #' Retrieve total number of publications from a request
+#' 
+#' https://developer.clarivate.com/apis/woslite
 #'
 #' @param query a character of length 1. The query to send to the WOS lite API.
 #' 
@@ -12,32 +14,26 @@
 #'
 #' @examples
 #' query <- "TS=((salmo AND salar) AND conservation)"
-#' wos_search(query, database = "WOK")
+#' wos_search(query)
 
 wos_search <- function(query, database = "WOK") {
   
   ## URL encoding ----
   
-  query <- gsub("=", "%3D", query)
-  query <- gsub("\\(", "%28", query)
-  query <- gsub("\\)", "%29", query)
-  query <- gsub("\\s", "%20", query)
+  query <- utils::URLencode(query, reserved = TRUE)
   
-  request <- paste0(api_url(), 
-                    "?databaseId=", database, 
-                    "&usrQuery=", query,
-                    "&count=", 100,
-                    "&firstRecord=", 301)
+  request <- paste0(api_url(), "?databaseId=", database, "&usrQuery=", query,
+                    "&count=", 0, "&firstRecord=", 1)
   
   response <- httr::GET(url    = request, 
                         config = httr::add_headers(
-                          `accept`  = 'application/json',
+                          `accept`   = 'application/json',
                           `X-ApiKey` = get_token()))
   
   httr::stop_for_status(response)
   
-  response <- httr::content(response, as = "text")
-  response <- jsonlite::fromJSON(response)
+  content <- httr::content(response, as = "text", encoding = "UTF-8")
+  content <- jsonlite::fromJSON(content)
   
-  response$"QueryResult"$"RecordsFound"
+  content$"QueryResult"$"RecordsFound"
 }
