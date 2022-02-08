@@ -12,9 +12,9 @@
 #'
 #' @examples
 #' query <- "TS=((salmo AND salar) AND conservation)"
-#' get_total_records(query, database = "WOK")
+#' wos_search(query, database = "WOK")
 
-get_total_records <- function(query, database = "WOK") {
+wos_search <- function(query, database = "WOK") {
   
   ## URL encoding ----
   
