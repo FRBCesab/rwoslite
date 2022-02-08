@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 
 
 
-rwoslite
+rwoslite <img src="man/figures/hexsticker.png" height="120" align="right"/>
 =========================================================
 
 <!-- badges: start -->
