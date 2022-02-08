@@ -12,7 +12,26 @@ MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://choosealicens
 WIP](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 <!-- badges: end -->
 
-The R package `rwoslite` is an R client for the [WOS Lite API]().
+This R package is an interface to the [WOS Lite
+API](https://developer.clarivate.com/apis/woslite). This package is
+freely released by the
+[FRB-CESAB](https://www.fondationbiodiversite.fr/en/about-the-foundation/le-cesab/)
+and allows user to retrieve references from a WOS request.
+
+## Requirements
+
+This package uses the WOS Lite API to access data on scientific
+literature. You must first have obtained a Personal API Token by
+contacting the WOS team.
+
+Then you must store this token as an R Environment variable (i.e. a
+name-value pairs). Use the function `usethis::edit_r_environ()` to open
+the `~/.Renviron` file and add this line (by replacing z999zzz… with
+your token):
+
+    WOS_KEY='z999zzz9zzz999999z9z99zz999zz999'
+
+Save the file and relaunch R.
 
 ## Installation
 
