@@ -15,32 +15,3 @@ get_token <- function(key = "WOS") {
   
   wos_token
 }
-
-
-get_records <- function(query, database = "WOK") {
-  
-  ## URL encoding ----
-  
-  query <- gsub("=", "%3D", query)
-  query <- gsub("\\(", "%28", query)
-  query <- gsub("\\)", "%29", query)
-  query <- gsub("\\s", "%20", query)
-  
-  request <- paste0(api_url(), 
-                    "?databaseId=", database, 
-                    "&usrQuery=", query,
-                    "&count=", 100,
-                    "&firstRecord=", 301)
-  
-  response <- httr::GET(url    = request, 
-                        config = httr::add_headers(
-                          `accept`  = 'application/json',
-                          `X-ApiKey` = get_token()))
-  
-  httr::stop_for_status(response)
-  
-  response <- httr::content(response, as = "text")
-  response <- jsonlite::fromJSON(response)
-  
-  response$"QueryResult"$"RecordsFound"
-}

@@ -1,24 +1,26 @@
-Package: rwos
+Package: rwoslite
 Type: Package
-Title: R Client for WOS API
+Title: R Client for WOS Lite API
 Version: 0.0.0.9000
 Authors@R: c(
     person(given   = "Nicolas",
            family  = "Casajus",
-           role    = c("aut", "cre"),
+           role    = c("aut", "cre", "cph"),
            email   = "nicolas.casajus@fondationbiodiversite.fr",
-           comment = c(ORCID = "0000-0002-5537-5294")))
-Description: R Client for WOS API.
-URL: https://github.com/FRBCesab/rwos
-BugReports: https://github.com/FRBCesab/rwos/issues
+           comment = c(ORCID = "0000-0002-5537-5294")),
+    person(given   = "Nicolas",
+           family  = "Mouquet",
+           role    = "aut",
+           email   = "nicolas.mouquet@cnrs.fr",
+           comment = c(ORCID = "0000-0003-1840-6984")))
+Description: R Client for the WOS Lite API.
+URL: https://github.com/FRBCesab/rwoslite
+BugReports: https://github.com/FRBCesab/rwoslite/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 Imports: 
-    devtools,
-    here,
     httr,
-    jsonlite,
-    remotes
+    jsonlite

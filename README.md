@@ -1,31 +1,49 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-## R Client for WOS API
+# rwoslite
 
 <!-- badges: start -->
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+[![License:
+MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://choosealicense.com/licenses/mit/)
+[![LifeCycle](man/figures/lifecycle/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![Project Status:
+WIP](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 <!-- badges: end -->
 
-[...]
+The R package `rwoslite` is an R client for the [WOS Lite API]().
 
+## Installation
 
-### Content
+You can install the development version from
+[GitHub](https://github.com/) with:
 
-This repository is structured as follow:
+``` r
+# install.packages("remotes")
+remotes::install_github("FRBCesab/rwoslite")
+```
 
--   [`R/`](https://github.com/frbcesab/rwos/tree/main/R):
-    contains R functions.
+Then you can attach the package `rwoslite`:
 
--   [`DESCRIPTION`](https://github.com/frbcesab/rwos/tree/main/DESCRIPTION):
-    contains project metadata (authors, date, dependencies, etc.).
+``` r
+library("rwoslite")
+```
 
--   [`make.R`](https://github.com/frbcesab/rwos/tree/main/make.R):
-    R script to run 'em all.
+## Overview
 
-### Usage
+Coming soon…
 
-Clone the repository and edit the R script `make.R`.
+## Citation
 
-All required packages, listed in the `DESCRIPTION` file, will be
-installed (if necessary) and loaded.
+Please cite this package as:
+
+> Casajus N & Mouquet N (2022) rwoslite: An R Client for the WOS Lite
+> API. R package version 0.0.0.9000.
+
+## Code of Conduct
+
+Please note that the `rwoslite` project is released with a [Contributor
+Code of
+Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
