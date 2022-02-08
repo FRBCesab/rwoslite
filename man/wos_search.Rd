@@ -2,24 +2,65 @@
 % Please edit documentation in R/wos-search.R
 \name{wos_search}
 \alias{wos_search}
-\title{Retrieve total number of publications from a request}
+\title{Retrieve the number of records that match a given WOS query}
 \usage{
 wos_search(query, database = "WOK")
 }
 \arguments{
-\item{query}{a character of length 1. The query to send to the WOS lite API.}
+\item{query}{a character of length 1. The query to send to the WOS lite API.
+Visit the \href{https://images.webofknowledge.com/images/help/WOK/contents.html}{WOS documentation}
+on how to write a query.}
 
-\item{database}{a character of length 1. One among... See ... for further
-information.}
+\item{database}{a character of length 1. One among \code{BCI} (BIOSIS Citation
+Index), \code{BCI} (BIOSIS Citation Index), \code{BIOABS} (Biological Abstracts),
+\code{BIOSIS} (BIOSIS Previews), \code{CCC} (Current Contents Connect), \code{DCI}
+(Data Citation Index), \code{DIIDW} (Derwent Innovations Index), \code{MEDLINE}
+(Medline), \code{WOS} (Web of Science Core Collection),
+\code{ZOOREC} (Zoological Record), and \code{WOK} (all databases).
+Default is \code{WOK} (all databases).}
 }
 \value{
-The total number of publications (integer of length 1) matching the
+The total number of records (integer of length 1) that match the
 query.
 }
 \description{
-https://developer.clarivate.com/apis/woslite
+This function sends a query to the
+\href{https://developer.clarivate.com/apis/woslite}{Web Of Science Lite API}
+and returns the total number of records that match this query.
+
+To learn how to write a WOS query, users can read the
+\href{https://images.webofknowledge.com/images/help/WOK/contents.html}{WOS documentation}.
+A list of WOS field tags is available
+\href{https://images.webofknowledge.com/images/help/WOS/hs_wos_fieldtags.html}{here}.
+
+It's strongly recommended to use this function before \link{wos_get_records} to
+have an idea on how many records you will download.
 }
 \examples{
-query <- "TS=((salmo AND salar) AND conservation)"
+\dontrun{
+## Search in TOPIC an exact expression ----
+query <- "TS=\"salmo salar\""
 wos_search(query)
+## [1] 21411
+
+## Search in TOPIC an exact expression and another term ----
+query <- "TS=(\"salmo salar\" AND conservation)"
+wos_search(query)
+## [1] 3779
+
+## Search for a specific year ----
+query <- "TS=(\"salmo salar\" AND conservation) AND PY=2021"
+wos_search(query)
+## [1] 114
+
+## Search for a time span ----
+query <- "TS=(\"salmo salar\" AND conservation) AND PY=2010-2021"
+wos_search(query)
+## [1] 1103
+
+## Search for an author ----
+query <- "AU=(\"Casajus N\")"
+wos_search(query)
+## [19]
+}
 }
