@@ -12,11 +12,10 @@ Visit the \href{https://images.webofknowledge.com/images/help/WOK/contents.html}
 on how to write a query.}
 
 \item{database}{a character of length 1. One among \code{BCI} (BIOSIS Citation
-Index), \code{BCI} (BIOSIS Citation Index), \code{BIOABS} (Biological Abstracts),
-\code{BIOSIS} (BIOSIS Previews), \code{CCC} (Current Contents Connect), \code{DCI}
-(Data Citation Index), \code{DIIDW} (Derwent Innovations Index), \code{MEDLINE}
-(Medline), \code{WOS} (Web of Science Core Collection),
-\code{ZOOREC} (Zoological Record), and \code{WOK} (all databases).
+Index), \code{BIOABS} (Biological Abstracts), \code{BIOSIS} (BIOSIS Previews),
+\code{CCC} (Current Contents Connect), \code{DCI} (Data Citation Index), \code{DIIDW}
+(Derwent Innovations Index), \code{MEDLINE} (Medline), \code{WOS} (Web of Science
+Core Collection), \code{ZOOREC} (Zoological Record), and \code{WOK} (all databases).
 Default is \code{WOK} (all databases).}
 }
 \value{
@@ -41,26 +40,21 @@ have an idea on how many records you will download.
 ## Search in TOPIC an exact expression ----
 query <- "TS=\"salmo salar\""
 wos_search(query)
-## [1] 21411
 
 ## Search in TOPIC an exact expression and another term ----
 query <- "TS=(\"salmo salar\" AND conservation)"
 wos_search(query)
-## [1] 3779
 
 ## Search for a specific year ----
 query <- "TS=(\"salmo salar\" AND conservation) AND PY=2021"
 wos_search(query)
-## [1] 114
 
 ## Search for a time span ----
 query <- "TS=(\"salmo salar\" AND conservation) AND PY=2010-2021"
 wos_search(query)
-## [1] 1103
 
 ## Search for an author ----
 query <- "AU=(\"Casajus N\")"
 wos_search(query)
-## [19]
 }
 }
