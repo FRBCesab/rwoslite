@@ -5,6 +5,9 @@
 
 <!-- badges: start -->
 
+[![R-CMD-check](https://github.com/FRBCesab/rwoslite/workflows/R-CMD-check/badge.svg)](https://github.com/FRBCesab/rwoslite/actions)
+[![Website
+deployment](https://github.com/FRBCesab/rwoslite/workflows/pkgdown/badge.svg)](https://github.com/FRBCesab/rwoslite/actions)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://choosealicense.com/licenses/mit/)
 [![LifeCycle](man/figures/lifecycle/lifecycle-stable.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
