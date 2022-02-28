@@ -7,9 +7,9 @@
 
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://choosealicense.com/licenses/mit/)
-[![LifeCycle](man/figures/lifecycle/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![LifeCycle](man/figures/lifecycle/lifecycle-stable.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![Project Status:
-WIP](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 <!-- badges: end -->
 
 This R package is an interface to the [WOS Lite
@@ -51,7 +51,12 @@ library("rwoslite")
 
 ## Overview
 
-Coming soon…
+The general workflow is the following:
+
+-   Use the function `rwoslite::wos_search()` to get the total number of
+    references that match the Web of Science query.
+-   Use the function `rwoslite::wos_get_records()` to download the
+    references.
 
 ## Citation
 
