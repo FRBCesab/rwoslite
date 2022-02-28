@@ -5,7 +5,8 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/FRBCesab/rwoslite/workflows/R-CMD-check/badge.svg)](https://github.com/FRBCesab/rwoslite/actions)
+[![R CMD
+check](https://github.com/FRBCesab/rwoslite/workflows/R-CMD-check/badge.svg)](https://github.com/FRBCesab/rwoslite/actions)
 [![Website
 deployment](https://github.com/FRBCesab/rwoslite/workflows/pkgdown/badge.svg)](https://github.com/FRBCesab/rwoslite/actions)
 [![License:
