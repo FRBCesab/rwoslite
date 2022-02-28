@@ -12,7 +12,7 @@ MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://choosealicens
 Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 <!-- badges: end -->
 
-This R package is an interface to the [WOS Lite
+This R package is an interface for the [WOS Lite
 API](https://developer.clarivate.com/apis/woslite). This package is
 freely released by the
 [FRB-CESAB](https://www.fondationbiodiversite.fr/en/about-the-foundation/le-cesab/)

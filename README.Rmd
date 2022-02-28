@@ -26,7 +26,7 @@ rwoslite <img src="man/figures/hexsticker.png" height="120" align="right"/>
 <!-- badges: end -->
 
 
-This R package is an interface to the [WOS Lite API](https://developer.clarivate.com/apis/woslite).
+This R package is an interface for the [WOS Lite API](https://developer.clarivate.com/apis/woslite).
 This package is freely released by the 
 [FRB-CESAB](https://www.fondationbiodiversite.fr/en/about-the-foundation/le-cesab/) 
 and allows user to retrieve references from a WOS request.
