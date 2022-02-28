@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# rwoslite <img src="man/figures/hexsticker.png" height="120" align="right"/>
+# rwoslite <img src="man/figures/hexsticker.png" height="120px" align="right" style="float:right; height:120px;"/>
 
 <!-- badges: start -->
 
