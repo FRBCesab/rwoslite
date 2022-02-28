@@ -1,21 +1,23 @@
 #' Retrieve the number of records that match a given WOS query
 #' 
 #' @description
-#' This function sends a query to the 
-#' [Web Of Science Lite API](https://developer.clarivate.com/apis/woslite)
-#' and returns the total number of records that match this query.
+#' This function sends a query to the Web Of Science Lite API 
+#' (https://developer.clarivate.com/apis/woslite) and returns the total number 
+#' of records that match this query.
 #' 
 #' To learn how to write a WOS query, users can read the 
-#' [WOS documentation](https://images.webofknowledge.com/images/help/WOK/contents.html).
+#' WOS documentation available at:
+#' https://images.webofknowledge.com/images/help/WOK/contents.html.
 #' A list of WOS field tags is available 
-#' [here](https://images.webofknowledge.com/images/help/WOS/hs_wos_fieldtags.html).
+#' at https://images.webofknowledge.com/images/help/WOS/hs_wos_fieldtags.html.
 #' 
 #' It's strongly recommended to use this function before [wos_get_records] to 
 #' have an idea on how many records you will download.
 #' 
 #' @param query a character of length 1. The query to send to the WOS lite API.
-#'   Visit the [WOS documentation](https://images.webofknowledge.com/images/help/WOK/contents.html) 
-#'   on how to write a query.
+#'   Visit the WOS documentation at
+#'   https://images.webofknowledge.com/images/help/WOK/contents.html on how to 
+#'   write a query.
 #' 
 #' @param database a character of length 1. One among `BCI` (BIOSIS Citation 
 #'   Index), `BIOABS` (Biological Abstracts), `BIOSIS` (BIOSIS Previews), 

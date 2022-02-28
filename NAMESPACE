@@ -2,4 +2,3 @@
 
 export(wos_get_records)
 export(wos_search)
-export(wos_to_bibtex)

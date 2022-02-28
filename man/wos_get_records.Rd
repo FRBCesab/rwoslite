@@ -2,10 +2,74 @@
 % Please edit documentation in R/wos-get-records.R
 \name{wos_get_records}
 \alias{wos_get_records}
-\title{...}
+\title{Download references that match a given WOS query}
 \usage{
-wos_get_records()
+wos_get_records(query, database = "WOK", sleep = 1)
+}
+\arguments{
+\item{query}{a character of length 1. The query to send to the WOS lite API.
+Visit the WOS documentation at
+https://images.webofknowledge.com/images/help/WOK/contents.html on how to
+write a query.}
+
+\item{database}{a character of length 1. One among \code{BCI} (BIOSIS Citation
+Index), \code{BIOABS} (Biological Abstracts), \code{BIOSIS} (BIOSIS Previews),
+\code{CCC} (Current Contents Connect), \code{DCI} (Data Citation Index), \code{DIIDW}
+(Derwent Innovations Index), \code{MEDLINE} (Medline), \code{WOS} (Web of Science
+Core Collection), \code{ZOOREC} (Zoological Record), and \code{WOK} (all databases).
+Default is \code{WOK} (all databases).}
+
+\item{sleep}{an numeric of length 1. To not stress the WOS LITE API, a random
+number between 0 and \code{sleep} will be picked to suspend queries.}
+}
+\value{
+A \code{data.frame} with \code{n} rows (where \code{n} is the total number of
+references) and the following 21 variables:
+\code{ut}: the unique identifier of the reference in the Web of Science system;
+\code{doc_type}: the document type;
+\code{title}: the title of the reference;
+\code{authors}: the authors of the reference;
+\code{book_authors}: the book authors (if applicable);
+\code{book_group_authors}: the book group authors (if applicable);
+\code{keywords}: the authors keywords;
+\code{source}: the title of the source (journal, book, etc.) in which the
+reference was published;
+\code{volume}: the volume number;
+\code{issue}: the issue number;
+\code{pages}: the pages range in the source;
+\code{no_article}: the article number;
+\code{published_date}: the published date;
+\code{published_year}: the published year;
+\code{supplement_number}: the supplement number (if applicable);
+\code{special_issue}: \code{SI} in case of a special issue (if applicable);
+\code{book_series_title}: the book series title (if applicable);
+\code{doi}: the Digital Object Identifier;
+\code{eissn}: the Electronic International Standard Identifier Number;
+\code{issn}: the International Standard Identifier Number;
+\code{isbn}: International Standard Book Number.
 }
 \description{
-...
+This function sends a query to the Web Of Science Lite API
+(https://developer.clarivate.com/apis/woslite) and returns references that
+match this query.
+
+To learn how to write a WOS query, users can read the
+WOS documentation available at:
+https://images.webofknowledge.com/images/help/WOK/contents.html.
+A list of WOS field tags is available
+at https://images.webofknowledge.com/images/help/WOS/hs_wos_fieldtags.html.
+
+It's strongly recommended to use the function \link{wos_search} before to
+have an idea on how many records you will download.
+
+\strong{Important:} Due to WOS LITE API limitations, the total number of records
+cannot exceed 100,000.
+}
+\examples{
+\dontrun{
+## Download references of an author ----
+query <- "AU=(\"Casajus N\")"
+wos_search(query)
+refs <- wos_get_records(query)
+}
 }

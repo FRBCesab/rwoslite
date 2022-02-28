@@ -8,8 +8,9 @@ wos_search(query, database = "WOK")
 }
 \arguments{
 \item{query}{a character of length 1. The query to send to the WOS lite API.
-Visit the \href{https://images.webofknowledge.com/images/help/WOK/contents.html}{WOS documentation}
-on how to write a query.}
+Visit the WOS documentation at
+https://images.webofknowledge.com/images/help/WOK/contents.html on how to
+write a query.}
 
 \item{database}{a character of length 1. One among \code{BCI} (BIOSIS Citation
 Index), \code{BIOABS} (Biological Abstracts), \code{BIOSIS} (BIOSIS Previews),
@@ -23,14 +24,15 @@ The total number of records (integer of length 1) that match the
 query.
 }
 \description{
-This function sends a query to the
-\href{https://developer.clarivate.com/apis/woslite}{Web Of Science Lite API}
-and returns the total number of records that match this query.
+This function sends a query to the Web Of Science Lite API
+(https://developer.clarivate.com/apis/woslite) and returns the total number
+of records that match this query.
 
 To learn how to write a WOS query, users can read the
-\href{https://images.webofknowledge.com/images/help/WOK/contents.html}{WOS documentation}.
+WOS documentation available at:
+https://images.webofknowledge.com/images/help/WOK/contents.html.
 A list of WOS field tags is available
-\href{https://images.webofknowledge.com/images/help/WOS/hs_wos_fieldtags.html}{here}.
+at https://images.webofknowledge.com/images/help/WOS/hs_wos_fieldtags.html.
 
 It's strongly recommended to use this function before \link{wos_get_records} to
 have an idea on how many records you will download.
