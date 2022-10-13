@@ -4,7 +4,7 @@
 \alias{wos_get_records}
 \title{Download references that match a given WOS query}
 \usage{
-wos_get_records(query, database = "WOK", limit = NULL, sleep = 1)
+wos_get_records(query, database = "WOS", limit = NULL, sleep = 1)
 }
 \arguments{
 \item{query}{a \code{character} of length 1. The query to send to the WOS lite
