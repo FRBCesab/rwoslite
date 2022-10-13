@@ -57,7 +57,7 @@ You can install the development version from [GitHub](https://github.com/) with:
 
 ```{r eval = FALSE}
 # install.packages("remotes")
-remotes::install_github("FRBCesab/rwoslite")
+remotes::install_github("frbcesab/rwoslite")
 ```
 
 Then you can attach the package `rwoslite`:
@@ -82,7 +82,7 @@ that match the Web of Science query.
 Please cite this package as: 
 
 > Casajus N & Mouquet N (`r format(Sys.Date(), "%Y")`) rwoslite: An R Client for
-the WOS Lite API. R package version 0.0.0.9000.
+the WOS Lite API. R package version 0.0.1.
 
 
 

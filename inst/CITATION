@@ -1,0 +1,10 @@
+citHeader("To cite rwoslite in publications use:")
+
+bibentry(
+  bibtype = "Manual",
+  title   = "rwoslite: {An} {R} {C}lient for the {WOS} {L}ite {API}",
+  author  = c(person("Casajus Nicolas"), person("Mouquet Nicolas")),
+  year    = "2022",
+  note    = "R package version 0.0.1",
+  url     = "https://github.com/frbcesab/rwoslite"
+)

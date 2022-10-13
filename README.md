@@ -43,7 +43,7 @@ You can install the development version from
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("FRBCesab/rwoslite")
+remotes::install_github("frbcesab/rwoslite")
 ```
 
 Then you can attach the package `rwoslite`:
@@ -56,17 +56,17 @@ library("rwoslite")
 
 The general workflow is the following:
 
--   Use the function `rwoslite::wos_search()` to get the total number of
-    references that match the Web of Science query.
--   Use the function `rwoslite::wos_get_records()` to download the
-    references.
+- Use the function `rwoslite::wos_search()` to get the total number of
+  references that match the Web of Science query.
+- Use the function `rwoslite::wos_get_records()` to download the
+  references.
 
 ## Citation
 
 Please cite this package as:
 
 > Casajus N & Mouquet N (2022) rwoslite: An R Client for the WOS Lite
-> API. R package version 0.0.0.9000.
+> API. R package version 0.0.1.
 
 ## Code of Conduct
 

@@ -1,7 +1,7 @@
 Package: rwoslite
 Type: Package
 Title: R Client for WOS Lite API
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: c(
     person(given   = "Nicolas",
            family  = "Casajus",
@@ -14,13 +14,13 @@ Authors@R: c(
            email   = "nicolas.mouquet@cnrs.fr",
            comment = c(ORCID = "0000-0003-1840-6984")))
 Description: R Client for the WOS Lite API.
-URL: https://github.com/FRBCesab/rwoslite
-BugReports: https://github.com/FRBCesab/rwoslite/issues
+URL: https://github.com/frbcesab/rwoslite
+BugReports: https://github.com/frbcesab/rwoslite/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1
 Imports: 
     httr,
     jsonlite,
