@@ -4,38 +4,35 @@
 \alias{wos_search}
 \title{Retrieve the number of records that match a given WOS query}
 \usage{
-wos_search(query, database = "WOK")
+wos_search(query, database = "WOS")
 }
 \arguments{
-\item{query}{a character of length 1. The query to send to the WOS lite API.
-Visit the WOS documentation at
-https://images.webofknowledge.com/images/help/WOK/contents.html on how to
-write a query.}
+\item{query}{a \code{character} of length 1. The query to send to the WOS lite
+API. Visit the WOS documentation at:
+\url{https://images.webofknowledge.com/images/help/WOK/contents.html} on
+how to write a WOS query.}
 
-\item{database}{a character of length 1. One among \code{BCI} (BIOSIS Citation
+\item{database}{a \code{character} of length 1. One among \code{BCI} (BIOSIS Citation
 Index), \code{BIOABS} (Biological Abstracts), \code{BIOSIS} (BIOSIS Previews),
 \code{CCC} (Current Contents Connect), \code{DCI} (Data Citation Index), \code{DIIDW}
 (Derwent Innovations Index), \code{MEDLINE} (Medline), \code{WOS} (Web of Science
 Core Collection), \code{ZOOREC} (Zoological Record), and \code{WOK} (all databases).
-Default is \code{WOK} (all databases).}
+Default is \code{WOS} (all databases).}
 }
 \value{
-The total number of records (integer of length 1) that match the
+The total number of records (\code{integer} of length 1) that match the
 query.
 }
 \description{
 This function sends a query to the Web Of Science Lite API
-(https://developer.clarivate.com/apis/woslite) and returns the total number
-of records that match this query.
+(\url{https://developer.clarivate.com/apis/woslite}) and returns the total
+number of records that match this query.
 
-To learn how to write a WOS query, users can read the
-WOS documentation available at:
-https://images.webofknowledge.com/images/help/WOK/contents.html.
-A list of WOS field tags is available
-at https://images.webofknowledge.com/images/help/WOS/hs_wos_fieldtags.html.
-
-It's strongly recommended to use this function before \link{wos_get_records} to
-have an idea on how many records you will download.
+To learn how to write a WOS query, users can read the WOS documentation
+available at:
+\url{https://images.webofknowledge.com/images/help/WOK/contents.html}.
+A list of WOS field tags is available at:
+\url{https://images.webofknowledge.com/images/help/WOS/hs_wos_fieldtags.html}.
 }
 \examples{
 \dontrun{

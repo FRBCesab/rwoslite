@@ -4,23 +4,27 @@
 \alias{wos_get_records}
 \title{Download references that match a given WOS query}
 \usage{
-wos_get_records(query, database = "WOK", sleep = 1)
+wos_get_records(query, database = "WOK", limit = NULL, sleep = 1)
 }
 \arguments{
-\item{query}{a character of length 1. The query to send to the WOS lite API.
-Visit the WOS documentation at
-https://images.webofknowledge.com/images/help/WOK/contents.html on how to
-write a query.}
+\item{query}{a \code{character} of length 1. The query to send to the WOS lite
+API. Visit the WOS documentation at:
+\url{https://images.webofknowledge.com/images/help/WOK/contents.html} on
+how to write a WOS query.}
 
-\item{database}{a character of length 1. One among \code{BCI} (BIOSIS Citation
+\item{database}{a \code{character} of length 1. One among \code{BCI} (BIOSIS Citation
 Index), \code{BIOABS} (Biological Abstracts), \code{BIOSIS} (BIOSIS Previews),
 \code{CCC} (Current Contents Connect), \code{DCI} (Data Citation Index), \code{DIIDW}
 (Derwent Innovations Index), \code{MEDLINE} (Medline), \code{WOS} (Web of Science
 Core Collection), \code{ZOOREC} (Zoological Record), and \code{WOK} (all databases).
-Default is \code{WOK} (all databases).}
+Default is \code{WOS} (all databases).}
 
-\item{sleep}{an numeric of length 1. To not stress the WOS LITE API, a random
-number between 0 and \code{sleep} will be picked to suspend queries.}
+\item{limit}{an \code{numeric} of length 1. The number of records to retrieve.
+Must be < 100,000 (API limit). Default is \code{NULL} (all possible records
+will be retrieved).}
+
+\item{sleep}{an \code{numeric} of length 1. To not stress the WOS LITE API, a
+random number between 0 and \code{sleep} will be picked to suspend queries.}
 }
 \value{
 A \code{data.frame} with \code{n} rows (where \code{n} is the total number of
@@ -50,14 +54,14 @@ reference was published;
 }
 \description{
 This function sends a query to the Web Of Science Lite API
-(https://developer.clarivate.com/apis/woslite) and returns references that
-match this query.
+(\url{https://developer.clarivate.com/apis/woslite}) and returns references
+that match this query.
 
-To learn how to write a WOS query, users can read the
-WOS documentation available at:
-https://images.webofknowledge.com/images/help/WOK/contents.html.
-A list of WOS field tags is available
-at https://images.webofknowledge.com/images/help/WOS/hs_wos_fieldtags.html.
+To learn how to write a WOS query, users can read the WOS documentation
+available at:
+\url{https://images.webofknowledge.com/images/help/WOK/contents.html}.
+A list of WOS field tags is available at:
+\url{https://images.webofknowledge.com/images/help/WOS/hs_wos_fieldtags.html}.
 
 It's strongly recommended to use the function \link{wos_search} before to
 have an idea on how many records you will download.
@@ -67,9 +71,10 @@ cannot exceed 100,000.
 }
 \examples{
 \dontrun{
-## Download references of an author ----
+## Download references of one author ----
 query <- "AU=(\"Casajus N\")"
 wos_search(query)
 refs <- wos_get_records(query)
+refs <- wos_get_records(query, limit = 1)
 }
 }
