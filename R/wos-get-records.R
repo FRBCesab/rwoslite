@@ -62,7 +62,7 @@
 #' refs <- wos_get_records(query, limit = 1)
 #' }
 
-wos_get_records <- function(query, database = "WOK", limit = NULL, sleep = 1) {
+wos_get_records <- function(query, database = "WOS", limit = NULL, sleep = 1) {
   
   if (!is.null(limit)) {
     
@@ -85,7 +85,13 @@ wos_get_records <- function(query, database = "WOK", limit = NULL, sleep = 1) {
   
   n_refs <- wos_search(query, database)
   
-  if (!is.null(limit)) n_refs <- limit
+  if (!is.null(limit)) {
+    if (n_refs >= limit) {
+      n_refs <- limit
+    } else {
+      limit <- n_refs
+    }
+  }
   
   
   ## Checks ----
