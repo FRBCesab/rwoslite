@@ -2,14 +2,14 @@
 #' 
 #' @description
 #' This function sends a query to the Web Of Science Lite API 
-#' (https://developer.clarivate.com/apis/woslite) and returns references that 
-#' match this query.
+#' (\url{https://developer.clarivate.com/apis/woslite}) and returns references 
+#' that match this query.
 #' 
-#' To learn how to write a WOS query, users can read the 
-#' WOS documentation available at:
-#' https://images.webofknowledge.com/images/help/WOK/contents.html.
-#' A list of WOS field tags is available 
-#' at https://images.webofknowledge.com/images/help/WOS/hs_wos_fieldtags.html.
+#' To learn how to write a WOS query, users can read the WOS documentation 
+#' available at:
+#' \url{https://images.webofknowledge.com/images/help/WOK/contents.html}.
+#' A list of WOS field tags is available at: 
+#' \url{https://images.webofknowledge.com/images/help/WOS/hs_wos_fieldtags.html}.
 #' 
 #' It's strongly recommended to use the function [wos_search] before to 
 #' have an idea on how many records you will download.
@@ -17,8 +17,12 @@
 #' **Important:** Due to WOS LITE API limitations, the total number of records 
 #' cannot exceed 100,000.
 #' 
-#' @param sleep an numeric of length 1. To not stress the WOS LITE API, a random
-#'   number between 0 and `sleep` will be picked to suspend queries.
+#' @param limit an `numeric` of length 1. The number of records to retrieve.
+#'   Must be < 100,000 (API limit). Default is `NULL` (all possible records
+#'   will be retrieved).
+#' 
+#' @param sleep an `numeric` of length 1. To not stress the WOS LITE API, a 
+#'   random number between 0 and `sleep` will be picked to suspend queries.
 #' 
 #' @inheritParams wos_search
 #' 
@@ -51,18 +55,37 @@
 #' 
 #' @examples
 #' \dontrun{
-#' ## Download references of an author ----
+#' ## Download references of one author ----
 #' query <- "AU=(\"Casajus N\")"
 #' wos_search(query)
 #' refs <- wos_get_records(query)
+#' refs <- wos_get_records(query, limit = 1)
 #' }
 
-wos_get_records <- function(query, database = "WOK", sleep = 1) {
+wos_get_records <- function(query, database = "WOK", limit = NULL, sleep = 1) {
+  
+  if (!is.null(limit)) {
+    
+    if (limit == 0) {
+      stop("Argument 'limit' must be strictly positive", call. = FALSE)
+    }
+    
+    if (limit > 100000) {
+      stop("Argument 'limit' must be < 100,000", call. = FALSE)
+    }
+  }
+  
+  
+  ## URL encoding ----
+  
+  query <- utils::URLencode(query, reserved = TRUE)
   
   
   ## Get total number of references ----
   
   n_refs <- wos_search(query, database)
+  
+  if (!is.null(limit)) n_refs <- limit
   
   
   ## Checks ----
@@ -74,18 +97,21 @@ wos_get_records <- function(query, database = "WOK", sleep = 1) {
   
   if (n_refs == 0)
     stop("No reference found")
-    
-    
-  ## URL encoding ----
-  
-  query <- utils::URLencode(query, reserved = TRUE)
   
   
   ## Compute number of requests ----
   
   refs  <- data.frame()
-  limit <- 100
-  pages <- seq(1, n_refs, by = limit)
+  
+  n_records_per_page <- 100
+  
+  if (!is.null(limit)) {
+    if (limit <= n_records_per_page) {
+      n_records_per_page <- limit
+    }
+  }
+  
+  pages <- seq(1, n_refs, by = n_records_per_page)
   
   
   for (page in pages) {
@@ -94,7 +120,7 @@ wos_get_records <- function(query, database = "WOK", sleep = 1) {
     ## Write query ----
     
     request <- paste0(api_url(), "?databaseId=", database, "&usrQuery=", query,
-                      "&count=", limit, "&firstRecord=", page)
+                      "&count=", n_records_per_page, "&firstRecord=", page)
     
     
     ## Send query ----
@@ -150,6 +176,8 @@ wos_get_records <- function(query, database = "WOK", sleep = 1) {
     
     if (length(pages) > 1) Sys.sleep(sample(seq(0, sleep, by = 0.01), 1))
   }
+  
+  if (!is.null(limit)) refs <- refs[1:limit, ]
   
   refs
 }
